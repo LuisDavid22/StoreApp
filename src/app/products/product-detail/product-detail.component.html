@@ -1,1 +1,17 @@
-<p>product-detail works!</p>
+<div class="container">
+  <img id="product_image" [src]="product.imageUrl" alt="" />
+
+  <span id="product_name">{{ product.productName }}</span>
+  <br />
+  <span id="product_id">{{ product.productId }}</span
+  ><br />
+  <span id="product_price">${{ product.price }}</span
+  ><br /><br />
+
+  <label style="font-weight: bold;">Cantidad:</label>
+  <quantity-box id="quatity_box" (valueChanged)="onQuantityChanged($event)"></quantity-box>
+
+  <button id="btn_add" type="button" class="btn btn-warning">Add to cart</button>
+  <span class="about" id="about_title">About this article</span>
+  <span class="about" id="about_body">{{ product.description }}</span>
+</div>
