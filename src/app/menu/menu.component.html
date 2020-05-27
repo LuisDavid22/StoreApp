@@ -1,32 +1,40 @@
 <nav class="navbar navbar-dark bg-dark justify-content-between">
-    <a class="navbar-brand">StoreApp</a>
-    <form class="form-inline">
-        <div id="searchDiv" class="input-group mb-3">
-            <input id="searchBar" type="text" class="form-control" placeholder="Que desea comprar?"  aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-warning" type="button">Search</button>
-            </div>
-          </div>
-    </form>
-
-    <div id="cart-image">
-        <img src="assets/images/cart.png"/>
-      My cart{{cartItems == 0 ? "" : "(" + cartItems + ")" }}
-    </div>
-   
-
-    <div class="dropdown" dropdown>
-        <button class="btn btn-secondary" dropdownToggle type="button" id="dropdownMenu2"  aria-haspopup="true" aria-expanded="false">
-          Hello <span>{{userName}}</span>
-        </button>
-        <div class="dropdown-menu" *dropdownMenu aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">My purchases</button>
-          <button class="dropdown-item" type="button">My profile</button>
-          <button class="dropdown-item" type="button">Sign Out</button>
-        </div>
+  <a routerLink="/" class="navbar-brand">StoreApp</a>
+  <form class="form-inline">
+    <div id="searchDiv" class="input-group mb-3">
+      <input
+        id="searchBar"
+        type="text"
+        class="form-control"
+        placeholder="Que desea comprar?"
+        aria-describedby="basic-addon2"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-outline-warning" type="button">Search</button>
       </div>
-  </nav>
+    </div>
+  </form>
 
+  <div id="cart-image" routerLink="/myCart">
+    <img src="assets/images/cart.png" />
+    My cart{{ cartItems == 0 ? "" : "(" + cartItems + ")" }}
+  </div>
 
-
-
+  <div class="dropdown" dropdown>
+    <button
+      class="btn btn-secondary"
+      dropdownToggle
+      type="button"
+      id="dropdownMenu2"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Hello <span>{{ userName }}</span>
+    </button>
+    <div class="dropdown-menu" *dropdownMenu aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" type="button">My purchases</button>
+      <button class="dropdown-item" type="button">My profile</button>
+      <button class="dropdown-item" type="button">Sign Out</button>
+    </div>
+  </div>
+</nav>

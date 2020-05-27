@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { SharedModule } from "./../shared/shared.module";
 import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";

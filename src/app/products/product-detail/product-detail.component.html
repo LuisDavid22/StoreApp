@@ -5,7 +5,7 @@
   <br />
   <span id="product_id">{{ product.productId }}</span
   ><br />
-  <span id="product_price">${{ product.price }}</span
+  <span id="product_price">{{ product.price | currency }}</span
   ><br /><br />
 
   <label style="font-weight: bold;">Cantidad:</label>

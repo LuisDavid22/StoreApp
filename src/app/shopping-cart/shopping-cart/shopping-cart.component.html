@@ -1,0 +1,27 @@
+<div class="empty-message" *ngIf="(cartItems | async)?.length == 0; else elseBlock">
+  your cart is empty at the moment, <span class="link" routerLink="/product">start buying!</span>
+</div>
+<ng-template class="container" #elseBlock>
+  <span class="total">Total: {{ getTotal() | currency }}</span>
+  <div class="list-container">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of cartItems | async">
+        <img [src]="item.product.imageUrl" alt="" />
+
+        <span class="item-name"> {{ item.product.productName }} </span>
+        <br />
+        <span class="item-price"> {{ item.product.price | currency }} </span><br />
+        <span><b>Quantity:</b> {{ item.quantity }} </span>
+        <fa-icon
+          class="icon"
+          [icon]="faTrashAlt"
+          (click)="deleteItem(item.customerId, item.product.productId)"
+        ></fa-icon>
+        <span class="item-subtotal"
+          >SubTotal: <span style="color: red;">{{ item.product.price * item.quantity | currency }}</span></span
+        >
+      </li>
+    </ul>
+  </div>
+</ng-template>
+<router-outlet></router-outlet>
