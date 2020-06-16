@@ -1,4 +1,4 @@
-<app-menu userName="Nuevo Usuario" cartItems=3></app-menu>
+<app-menu userName="Nuevo Usuario" [cartItems]="cartItems | async"></app-menu>
 <!-- <a routerLink="/user/bob" >
     Pulsa Aqui
   </a>

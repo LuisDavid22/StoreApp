@@ -23,10 +23,12 @@ export class ApiService {
 
   create(resource) {
     const headers = { headers: new HttpHeaders({ "Content-Type": "application/json" }) };
-    return this.http.post(this.apiEndpoint, resource, headers).pipe(
-      tap((data) => "Create resource: " + JSON.stringify(data)),
-      catchError(this.handleError)
-    );
+    return this.http
+      .post(this.apiEndpoint, resource, { headers: new HttpHeaders({ "Content-Type": "application/json" }) })
+      .pipe(
+        tap((data) => "Create resource: " + JSON.stringify(data)),
+        catchError(this.handleError)
+      );
   }
 
   edit(id, resource) {

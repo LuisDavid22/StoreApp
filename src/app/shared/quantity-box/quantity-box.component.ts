@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 
 @Component({
   selector: "quantity-box",
@@ -6,7 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
   styleUrls: ["./quantity-box.component.scss"],
 })
 export class QuantityBoxComponent implements OnInit {
-  value: number = 1;
+  @Input() value: number = 1;
   @Output() valueChanged: EventEmitter<number> = new EventEmitter();
   constructor() {}
 

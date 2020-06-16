@@ -1,17 +1,17 @@
 <div class="container">
-  <img id="product_image" [src]="product.imageUrl" alt="" />
+  <img id="product_image" [src]="product?.imageUrl" alt="" />
 
-  <span id="product_name">{{ product.productName }}</span>
+  <span id="product_name">{{ product?.productName }}</span>
   <br />
-  <span id="product_id">{{ product.productId }}</span
+  <span id="product_id">{{ product?.productId }}</span
   ><br />
-  <span id="product_price">{{ product.price | currency }}</span
+  <span id="product_price">{{ product?.price | currency }}</span
   ><br /><br />
 
   <label style="font-weight: bold;">Cantidad:</label>
   <quantity-box id="quatity_box" (valueChanged)="onQuantityChanged($event)"></quantity-box>
 
-  <button id="btn_add" type="button" class="btn btn-warning">Add to cart</button>
+  <button id="btn_add" type="button" class="btn btn-warning" (click)="addToCart()">Add to cart</button>
   <span class="about" id="about_title">About this article</span>
-  <span class="about" id="about_body">{{ product.description }}</span>
+  <span class="about" id="about_body">{{ product?.description }}</span>
 </div>

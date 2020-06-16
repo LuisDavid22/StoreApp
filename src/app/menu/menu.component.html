@@ -17,7 +17,7 @@
 
   <div id="cart-image" routerLink="/myCart">
     <img src="assets/images/cart.png" />
-    My cart{{ cartItems == 0 ? "" : "(" + cartItems + ")" }}
+    My cart{{ cartItems == 0 || cartItems == null ? "" : "(" + cartItems + ")" }}
   </div>
 
   <div class="dropdown" dropdown>

@@ -1,3 +1,4 @@
+import { ShoppingCartService } from "./../../shopping-cart/shopping-cart.service";
 import { IProduct } from "./../product";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
@@ -11,8 +12,14 @@ import { ProductService } from "../product.service";
 export class ProductDetailComponent implements OnInit {
   productId: string;
   product: IProduct;
-  quantityToBuy: number;
-  constructor(private route: ActivatedRoute, private productApi: ProductService, private router: Router) {}
+  quantityToBuy: number = 1;
+
+  constructor(
+    private route: ActivatedRoute,
+    private productApi: ProductService,
+    private cartService: ShoppingCartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get("id");
@@ -32,5 +39,9 @@ export class ProductDetailComponent implements OnInit {
   onQuantityChanged(value: number) {
     this.quantityToBuy = value;
     console.log(this.quantityToBuy);
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.product["productId"], this.quantityToBuy).subscribe();
   }
 }

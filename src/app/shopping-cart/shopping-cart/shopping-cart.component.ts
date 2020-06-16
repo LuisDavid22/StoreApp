@@ -35,4 +35,10 @@ export class ShoppingCartComponent implements OnInit {
   deleteItem(customerId: number, productId: string) {
     this.service.deleteItem(customerId, productId).subscribe(() => this.refreshItems.next(undefined));
   }
+
+  onValueChanged(productId: string, quantity: number) {
+    let oldQuantity = +this.items.filter((x) => x["product"].productId == productId)[0]["quantity"];
+    let newQuantity = quantity - oldQuantity;
+    this.service.addToCart(productId, newQuantity).subscribe();
+  }
 }
